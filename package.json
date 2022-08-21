@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://b805rohit.github.io/react-hardware-handler-store",
+  "homepage": "http://b805rohit.github.io/react-hardware-handler-store",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
