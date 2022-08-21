@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import {
-  BrowserRouter as Router, Route, Routes
+  BrowserRouter as Router, Navigate, Route, Routes
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,6 +14,7 @@ import './App.css';
 
 function App() {
   const [ state,dispatch ] = useReducer(storeReducer,initialState)
+  
   return (
     <Router>
       <ToastContainer />
@@ -21,10 +22,11 @@ function App() {
           <NavBar checkoutCount={state.checkout.length} />
           <article className="app-container">
             <Routes>
-            <Route element={ <Home /> } path="/" />
-            <Route element={ <ProductList state={state} dispatch={dispatch} /> } path="/my-products" />
-            <Route path="/new-product-form" element={<ProductForm state={state} dispatch={dispatch} />} />
-            <Route path="/checkout" element={ <Checkout state={state} dispatch={dispatch}  /> } />
+              <Route element={ <Navigate to="/" replace={true} /> } path="/react-hardware-handler-store" />
+              <Route element={ <Home /> } path="/" />
+              <Route element={ <ProductList state={state} dispatch={dispatch} /> } path="/my-products" />
+              <Route path="/new-product-form" element={<ProductForm state={state} dispatch={dispatch} />} />
+              <Route path="/checkout" element={ <Checkout state={state} dispatch={dispatch}  /> } />
             </Routes>
           </article>
       </section>
